@@ -5,7 +5,9 @@
 </script>
 
 <!-- <NavBar/> -->
-<nav class="flex justify-center my-6">
+<!-- 
+    don´t kill me lime, but i think this is better (they can change name and photo in settings)
+    <nav class="flex justify-center my-6">
     <ul class="steps">
         <a href="/login" class="step step-primary">Sign In</a>
         <a
@@ -21,10 +23,10 @@
         Upload Photo
         </a>
     </ul>
-</nav>
+</nav>-->
 
 <AnimatedRoute>
-<main class="card w-1/3 bg-neutral text-neutral-content mx-auto">
+<main class="card w-1/3 bg-neutral text-neutral-content mx-auto my-12">
     <div class="card-body items-center text-center">
         <slot />
     </div>

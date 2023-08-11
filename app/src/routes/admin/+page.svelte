@@ -1,0 +1,34 @@
+<script>
+    import { user } from "$lib/firebase";
+    import NavBar from '$lib/components/NavBar.svelte';
+    let info = {
+        registeredUsers: 2,
+        onlineUsers: 1,
+        reports: 3,
+    }
+</script>
+
+<NavBar/>
+<main class="flex items-center justify-center h-screen">
+    {#if $user}
+        <div class="p-6 shadow rounded-lg border">
+            <div class="flex justify-center"><h1 class="text-2xl font-semibold">Admin's Headquarters</h1></div>
+            <div class="divider"></div>
+            <h2 class="text-xl font-semibold">Welcome back {$user?.displayName}!</h2>
+            <p class="text-gray-500">You are logged in as an admin.</p>
+            <div class="divider"></div>
+            <h2 class="text-xl font-semibold">Registered users: <span>{info.registeredUsers}</span></h2> 
+            <h2 class="text-xl font-semibold">Online users: <span>{info.onlineUsers}</span></h2> 
+            <h2 class="text-xl font-semibold">Reports: <span>{info.reports}</span>
+                {#if info.reports > 0 }<button class="btn btn-sm btn-outline">View reports</button>{/if}</h2>
+            <div class="flex justify-center"><h2 class="text-xl font-semibold">Admin's Tools</h2></div>
+            <div class="mt-4">
+                <button class="btn">Send changelog</button>
+                <button class="btn">Force Update Website</button>
+                <button class="btn">Send Custom Message</button>
+            </div>
+        </div>
+    {:else}
+    <span class="loading loading-spinner text-discodes loading-lg"></span>
+    {/if}
+</main>

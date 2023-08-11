@@ -1,0 +1,56 @@
+<script>
+    import { user } from "$lib/firebase";
+    import NavBar from '$lib/components/NavBar.svelte';
+</script>
+
+<NavBar/>
+<main class="flex items-center justify-center h-screen">
+    {#if $user}
+        <div class="p-6 shadow rounded-lg border">
+            <div class="flex justify-center"><h1 class="text-2xl font-semibold">Account Information</h1></div>
+            <div class="divider"></div>
+            <div class="flex items-center">
+                <img src={$user?.photoURL} alt={"Profile Picture of " + ($user ? $user.displayName : "User")} class="w-16 h-16 rounded-full mr-4" />
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold">{$user?.displayName}</h2>
+                    <p class="text-gray-500">{$user?.email}</p>
+                </div>
+            </div>
+                <p><strong>Account Created:</strong> {$user?.metadata.creationTime}</p>
+                <p><strong>Last Signed In:</strong> {$user?.metadata.lastSignInTime}</p>
+            <div class="mb-4 mt-6">
+                <h3 class="text-lg font-semibold mb-2">Connections:</h3>
+                <div class="flex">
+                    {#each $user?.providerData as provider}
+                    <p class="ml-4">{provider.providerId}</p>   
+                {/each}
+            </div>
+            </div>
+            <div class="flex justify-center"><h2 class="text-xl font-semibold">Public profile</h2></div>
+            <div class="divider"></div>
+            <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Bio</span>
+                </label>
+                <textarea class="textarea textarea-bordered h-24 " placeholder="comming in new update" disabled></textarea>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer">
+                  <span class="label-text">Make profile private and hide activity</span> 
+                  <input type="checkbox" class="checkbox" disabled checked />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer">
+                  <span class="label-text">Show Achievements on my profile</span> 
+                  <input type="checkbox" class="checkbox" disabled checked />
+                </label>
+              </div>
+              <div class="flex justify-center text-red-400"><h2 class="text-xl font-semibold mt-6">Delete account</h2></div>
+              <div class="divider"></div>
+              <div class="flex justify-center"><button class="btn btn-outline btn-error btn-disabled">Delete your account</button></div>
+        </div>
+    {:else}
+    <span class="loading loading-spinner text-discodes loading-lg"></span>
+    {/if}
+</main>

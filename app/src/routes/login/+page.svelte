@@ -14,7 +14,7 @@
     <img src='../../../Gifs/congrats.gif' alt='Congratulations!'>
     <div>
         <button class="btn btn-warning mr-3" on:click={() => signOut(auth)}>Sign out</button>
-        <a href="/login/username" class="btn btn-accent">Next</a>
+        <a href="/" class="btn btn-accent">Back home</a>
     </div>
 {:else}
     <p class="font-bold text-xl">Sign in<p>

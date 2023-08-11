@@ -1,8 +1,3 @@
-<script>
-    import LogOutModal from "./LogOutModal.svelte";
-
-</script>
-
 <div class="drawer">
     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
@@ -18,7 +13,6 @@
         <li><a href="/">Sidebar Item 1</a></li>
         <li><a href="/">Sidebar Item 2</a></li>
         <div class="divider"></div>
-        <LogOutModal/>
         
     </ul>
     </div>
