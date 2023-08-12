@@ -14,7 +14,7 @@
         <li><a href="/account"><span class="material-symbols-outlined">
             person
             </span> Account</a></li>
-        <li><a href="/account/notifications"><span class="material-symbols-outlined">
+        <li><a href="/dashboard/notifications"><span class="material-symbols-outlined">
             notifications
             </span> Notifications <span class="badge badge-error text-xs">{notificationCount}</span></a></li>
         <li><a href="/settings"><span class="material-symbols-outlined">

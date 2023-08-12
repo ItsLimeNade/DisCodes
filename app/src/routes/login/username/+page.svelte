@@ -1,6 +1,7 @@
 <script lang='ts'>
-    import { goto } from "$app/navigation";
     import AuthCheck from "$lib/components/AuthCheck.svelte";
+    import PermsCheck from "$lib/components/PermsCheck.svelte";
+
     import {db, user} from '$lib/firebase';
     import {doc, getDoc, writeBatch} from "firebase/firestore";
 
@@ -61,7 +62,7 @@ $: isTaken = isValid && !isAvailable && !loading
 </script>
 
 
-
+<PermsCheck>
 <AuthCheck>
     <h2 class="text-xl">Choose a username</h2>
     <form class="w-2/5" on:submit|preventDefault={confirmUsername}>
@@ -101,6 +102,5 @@ $: isTaken = isValid && !isAvailable && !loading
         {/if}
         </div>
     </form>
-    
-    
     </AuthCheck>
+</PermsCheck>

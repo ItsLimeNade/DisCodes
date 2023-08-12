@@ -1,8 +1,11 @@
-<script>
-    import { user } from "$lib/firebase";
+<script lang="ts">
+    import {user } from "$lib/firebase";
     import NavBar from '$lib/components/NavBar.svelte';
+    import AuthCheck from "$lib/components/AuthCheck.svelte";
+
 </script>
 
+<AuthCheck>
 <NavBar/>
 <main class="flex items-center justify-center h-screen">
     {#if $user}
@@ -32,8 +35,9 @@
                 <label class="label">
                   <span class="label-text">Bio</span>
                 </label>
-                <textarea class="textarea textarea-bordered h-24 " placeholder="comming in new update" disabled></textarea>
+                <textarea class="textarea textarea-bordered h-24 " placeholder="Enter Bio here"></textarea>
               </div>
+              <button class="btn btn-accent mt-4 ml-32 mr-6">Publish Bio</button>
               <div class="form-control">
                 <label class="label cursor-pointer">
                   <span class="label-text">Make profile private and hide activity</span> 
@@ -54,3 +58,4 @@
     <span class="loading loading-spinner text-discodes loading-lg"></span>
     {/if}
 </main>
+</AuthCheck>

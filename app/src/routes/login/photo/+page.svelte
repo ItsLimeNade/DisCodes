@@ -1,27 +1,28 @@
 <script lang='ts'>
-import AuthCheck from "$lib/components/AuthCheck.svelte";
-import { user, userData, storage, db } from "$lib/firebase";
-import { doc, updateDoc } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+    import AuthCheck from "$lib/components/AuthCheck.svelte";
+    import PermsCheck from "$lib/components/PermsCheck.svelte";
+    import { user, userData, storage, db } from "$lib/firebase";
+    import { doc, updateDoc } from "firebase/firestore";
+    import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-let previewURL: string;
-let uploading = false;
+    let previewURL: string;
+    let uploading = false;
 
-async function upload(e:any) {
-    uploading = true;
-    const file = e.target.files[0];
-    previewURL = URL.createObjectURL(file);
-    const storageRef = ref(storage, `users/${$user!.uid}/profile.png`);
-    const result = await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(result.ref);
+    async function upload(e:any) {
+        uploading = true;
+        const file = e.target.files[0];
+        previewURL = URL.createObjectURL(file);
+        const storageRef = ref(storage, `users/${$user!.uid}/profile.png`);
+        const result = await uploadBytes(storageRef, file);
+        const url = await getDownloadURL(result.ref);
 
-    await updateDoc(doc(db,"users", $user!.uid), {photoURL: url});
-    uploading = false; 
-}
+        await updateDoc(doc(db,"users", $user!.uid), {photoURL: url});
+        uploading = false; 
+    }
 </script>
 
 
-
+<PermsCheck>
 <AuthCheck>
     <h2 class='card-title'>Upload a Profile Picture</h2>
 
@@ -55,3 +56,4 @@ async function upload(e:any) {
         </div>
     </form>
 </AuthCheck>
+</PermsCheck>
