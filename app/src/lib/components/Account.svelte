@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import LogOutModal from "./LogOutModal.svelte";
     import { user } from "$lib/firebase";
     
@@ -31,4 +31,4 @@
         <li class="dropdown-divider"></li>
         <LogOutModal />
     </ul>
-</details>
+</details> -->

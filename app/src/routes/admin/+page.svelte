@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import { user, db } from "$lib/firebase";
     import { collection, getCountFromServer } from "firebase/firestore";
     import NavBar from '$lib/components/NavBar.svelte';
@@ -52,4 +52,4 @@
     {:else}
     <span class="loading loading-spinner text-discodes loading-lg"></span>
     {/if}
-</main>
+</main> -->

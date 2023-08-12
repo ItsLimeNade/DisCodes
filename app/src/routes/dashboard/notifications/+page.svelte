@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { user } from "$lib/firebase";
   import NavBar from '$lib/components/NavBar.svelte';
 
@@ -27,4 +27,4 @@
   {:else}
     <span class="loading loading-spinner text-discodes loading-lg"></span>
   {/if}
-</main>
+</main> -->

@@ -1,4 +1,4 @@
-<script lang='ts'>
+<!-- <script lang='ts'>
     import { goto } from "$app/navigation";
     import { user } from "$lib/firebase";
     import { onMount } from "svelte";
@@ -8,4 +8,4 @@
     <slot/>
 {:else}
 {onMount(() => goto('/errors/login'))}
-{/if}
+{/if} -->

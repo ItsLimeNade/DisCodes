@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { page } from '$app/stores';
     import Drawer from '$lib/components/Drawer.svelte';
     import Account from '$lib/components/Account.svelte';
-    import { user } from '$lib/firebase';
+    // import { user } from '$lib/firebase';
 
 </script>
 
@@ -17,11 +16,11 @@
     <a class="ml-4 normal-case text-xl">DisCodes</a>
     </div>
     <div class="flex-none">
-            {#if $user}
+            <!-- {#if $user}
             <a class="btn btn-ghost normal-case" href="/dashboard">Dashboard</a>
             <Account />
             {:else}
             <a class="btn btn-ghost normal-case" href="/login">Log In</a>
-            {/if}
+            {/if} -->
     </div>
 </div>

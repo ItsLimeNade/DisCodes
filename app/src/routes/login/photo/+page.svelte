@@ -1,4 +1,4 @@
-<script lang='ts'>
+<!-- <script lang='ts'>
     import AuthCheck from "$lib/components/AuthCheck.svelte";
     import PermsCheck from "$lib/components/PermsCheck.svelte";
     import { user, userData, storage, db } from "$lib/firebase";
@@ -40,7 +40,7 @@
             <!-- <label for='photoURL' class='label'>
                 <span class='label-text'>Pick a file</span>
             </label> -->
-            <p class="text-xl mb-1">Pick a file</p>
+            <!-- <p class="text-xl mb-1">Pick a file</p>
             <input
             on:change={upload}
             name='photoURL'
@@ -56,4 +56,4 @@
         </div>
     </form>
 </AuthCheck>
-</PermsCheck>
+</PermsCheck> -->

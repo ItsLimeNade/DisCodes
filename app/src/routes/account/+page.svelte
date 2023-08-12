@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import {user } from "$lib/firebase";
     import NavBar from '$lib/components/NavBar.svelte';
     import AuthCheck from "$lib/components/AuthCheck.svelte";
@@ -58,4 +58,4 @@
     <span class="loading loading-spinner text-discodes loading-lg"></span>
     {/if}
 </main>
-</AuthCheck>
+</AuthCheck> -->

@@ -1,7 +1,7 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { auth } from "$lib/firebase";
     import { signOut } from "firebase/auth";
-</script>
+</script> -->
 
 
 
@@ -14,7 +14,7 @@
         <p class="text-warning text-lg">All Unsaved data will be lost!</p>
         <div class="modal-action">
         <!-- if there is a button in form, it will close the modal -->
-            <button class="btn btn-error" on:click={() => {signOut(auth)}}>Log Out</button>
+            <!-- <button class="btn btn-error" on:click={() => {signOut(auth)}}>Log Out</button> -->
             <button class="btn">Cancel</button>
         </div>
     </form>
