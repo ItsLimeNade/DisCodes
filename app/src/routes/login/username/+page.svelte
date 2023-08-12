@@ -1,4 +1,4 @@
-<script lang='ts'>
+<!-- <script lang='ts'>
     import AuthCheck from "$lib/components/AuthCheck.svelte";
     import PermsCheck from "$lib/components/PermsCheck.svelte";
 
@@ -103,4 +103,4 @@ $: isTaken = isValid && !isAvailable && !loading
         </div>
     </form>
     </AuthCheck>
-</PermsCheck>
+</PermsCheck> -->
