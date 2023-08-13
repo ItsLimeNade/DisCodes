@@ -1,13 +1,21 @@
 <script>
     import { user } from "$lib/userStore";
     import NavBar from '$lib/components/NavBar.svelte';
+    import { supabase } from '$lib/supabase';
 
-
+    
     let registeredUsers = async () => {
-        // const collectionRef = collection(db,'users');
-        // const snapshot = await getCountFromServer(collectionRef)
-        // return snapshot.data().count
+    try {
+        const { data, error } = await supabase
+            .from('profiles')
+            .select('*');
+        return data?.length;
+    } catch (error) {
+        console.error('Error fetching user count:', error.message);
+        return 0; // Return a default value or handle the error as needed
     }
+}
+
 
     let info = {
         onlineUsers: 1,
