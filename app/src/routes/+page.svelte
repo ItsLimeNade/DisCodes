@@ -1,7 +1,15 @@
 <script lang="ts">
     import Changelog from './changelog/+page.svelte';
     import NavBar from '$lib/components/NavBar.svelte';
-    // import { user } from '$lib/firebase';
+    import { supabase } from '$lib/supabase';
+
+    async function user() { 
+      let user1 = await supabase.auth.getUser()
+      console.log()
+      return await supabase.auth.getUser()
+    }
+    
+
   </script>
 
 <NavBar/>
@@ -11,6 +19,11 @@
     <!-- <a class="btn btn-accent" href={$user ? '/dashboard' : '/login'}>
       {$user ? 'Open dashboard' : "Let's begin!"}
     </a>     -->
+    {#await user}
+      loading...
+    {:then resolved} 
+      {JSON.stringify(resolved)}
+    {/await}
     <div class="py-10" />
     <Changelog />
   </div>

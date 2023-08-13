@@ -5,10 +5,8 @@
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: "discord",
         });
-        user()
+        
     }
-
-    let user = async () => {console.log(await supabase.auth.getUser())} 
 
 </script>
 
