@@ -1,29 +1,12 @@
 <script lang="ts">
-    import Changelog from './changelog/+page.svelte';
-    import NavBar from '$lib/components/NavBar.svelte';
-    import { supabase } from '$lib/supabase';
+	import { Auth } from '@supabase/auth-ui-svelte'
+	import { ThemeSupa } from '@supabase/auth-ui-shared'
 
-    async function user() { 
-      let user1 = await supabase.auth.getUser()
-      console.log()
-      return await supabase.auth.getUser()
-    }
-    
+    export let data
+</script>
 
-  </script>
-
-<NavBar/>
 <div class="flex flex-col items-center justify-center h-screen">
-    <h1 class="text-3xl font-bold underline text-[45px] mb-2">DisCodes</h1>
-    <h3 class="text-center font-bold mt-4 mb-2">The best place for your discord bot</h3>
-    <!-- <a class="btn btn-accent" href={$user ? '/dashboard' : '/login'}>
-      {$user ? 'Open dashboard' : "Let's begin!"}
-    </a>     -->
-    {#await user}
-      loading...
-    {:then resolved} 
-      {JSON.stringify(resolved)}
-    {/await}
-    <div class="py-10" />
-    <Changelog />
-  </div>
+<h1 class="text-3xl font-bold underline text-[45px] mb-2">DisCodes</h1>
+<h3 class="text-center font-bold mt-4 mb-2">The best place for your discord bot</h3>
+    <a class="btn btn-accent" href="/login">Let's Go!</a>
+</div>
