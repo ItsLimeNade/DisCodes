@@ -7,5 +7,5 @@ if (code) {
     await supabase.auth.exchangeCodeForSession(code)
 }
 
-throw redirect(303, '/account')
+// throw redirect(303, '/account')
 }
