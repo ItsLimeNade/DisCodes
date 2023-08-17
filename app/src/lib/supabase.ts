@@ -1,9 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
+import { PUBLIC_SUPA_URL, PUBLIC_SUPA_ANON_KEY } from '$env/static/public'
 
-export const supabase = createClient("https://tkfyepmvhyrgyizqferr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRrZnllcG12aHlyZ3lpenFmZXJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTE4NzA4ODMsImV4cCI6MjAwNzQ0Njg4M30.mcz12CAeb8iR3UygVXRiySs1Qch0Ipgq2gz_64uOi-0")
-
-
-
-export async function signout() {
-    const { error } = await supabase.auth.signOut()
-}
+const supabaseUrl = PUBLIC_SUPA_URL;
+const supabaseKey = PUBLIC_SUPA_ANON_KEY;
+export const supabase = createClient(supabaseUrl, supabaseKey, {db: {schema: 'public'}});

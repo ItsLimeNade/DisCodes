@@ -1,14 +1,21 @@
-<!-- <script>
-    import { user, db } from "$lib/firebase";
-    import { collection, getCountFromServer } from "firebase/firestore";
+<script>
+    import { user } from "$lib/userStore";
     import NavBar from '$lib/components/NavBar.svelte';
+    import { supabase } from '$lib/supabase';
 
-
+    
     let registeredUsers = async () => {
-        const collectionRef = collection(db,'users');
-        const snapshot = await getCountFromServer(collectionRef)
-        return snapshot.data().count
+    try {
+        const { data, error } = await supabase
+            .from('profiles')
+            .select('*');
+        return data?.length;
+    } catch (error) {
+        console.error('Error fetching user count:', error.message);
+        return 0; // Return a default value or handle the error as needed
     }
+}
+
 
     let info = {
         onlineUsers: 1,
@@ -22,7 +29,7 @@
         <div class="p-6 shadow rounded-lg border">
             <div class="flex justify-center"><h1 class="text-2xl font-semibold">Admin's Headquarters</h1></div>
             <div class="divider"></div>
-            <h2 class="text-xl font-semibold">Welcome back {$user?.displayName}!</h2>
+            <h2 class="text-xl font-semibold">Welcome back {$user.user_metadata.full_name}!</h2>
             <p class="text-gray-500">You are logged in as an admin.</p>
             <div class="divider"></div>
             
@@ -52,4 +59,4 @@
     {:else}
     <span class="loading loading-spinner text-discodes loading-lg"></span>
     {/if}
-</main> -->
+</main>

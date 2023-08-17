@@ -1,5 +1,5 @@
-<!-- <script>
-  import { user } from "$lib/firebase";
+<script>
+  import { user } from "$lib/userStore";
   import NavBar from '$lib/components/NavBar.svelte';
 
   let dummyNotifications = [
@@ -12,7 +12,7 @@
 
 <main class="flex items-center justify-center h-screen">
   {#if $user}
-    <div class="p-6 shadow rounded-lg border w-full max-w-md">
+    <div class="p-6 shadow rounded-lg border">
       <div class="flex justify-center"><h1 class="text-2xl font-semibold">User notifications</h1></div>
       <div class="divider my-4"></div>
 
@@ -27,4 +27,4 @@
   {:else}
     <span class="loading loading-spinner text-discodes loading-lg"></span>
   {/if}
-</main> -->
+</main>

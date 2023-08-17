@@ -1,34 +1,21 @@
 <script lang="ts">
-
-    import { supabase } from "$lib/supabase";
-    async function signInWithDiscord() {
-        const { data, error } = await supabase.auth.signInWithOAuth({
-            provider: "discord",
-        });
-        
+    import { Auth } from '@supabase/auth-ui-svelte'
+	import { ThemeSupa } from '@supabase/auth-ui-shared'
+    import { onMount } from 'svelte';
+    export let data
+    onMount(async () => {
+    if (data.session) {
+        window.location.href = '/'
     }
-
+})
 </script>
-
-<!-- {#if $user}
-    <div class="avatar">
-        <div class="w-30 rounded-full">
-            <img
-            src={$user?.photoURL ?? "../../../Images/emptypfp.png"}
-            alt='photoURL'
-            class="mx-auto"
-            />
-        </div>
-    </div>
-    <h2>Hi {$user.displayName}</h2>
-    <p class="text-center text-success">You are logged in!</p>
-    <img src='../../../Gifs/congrats.gif' alt='Congratulations!'>
-    <div>
-        <button class="btn btn-warning mr-3" on:click={() => signOut(auth)}>Sign out</button>
-        <a href="/" class="btn btn-accent">Back home</a>
-    </div>
-{:else} -->
-    <p class="font-bold text-xl">Sign in</p>
-    <button class="btn btn-primary" on:click={signInWithDiscord}>Sign in with Discord</button>
-<!-- {/if} -->
-
+<div class="flex flex-col items-center justify-center h-screen">
+<Auth
+supabaseClient={data.supabase}
+appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
+providers={['discord']}
+redirectTo={`${data.url}/auth/callback`}
+showLinks={false}
+onlyThirdPartyProviders={true}
+/>
+</div>

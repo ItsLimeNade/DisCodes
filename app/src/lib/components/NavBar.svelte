@@ -1,8 +1,6 @@
 <script lang="ts">
-    import Drawer from '$lib/components/Drawer.svelte';
-    import Account from '$lib/components/Account.svelte';
-    // import { user } from '$lib/firebase';
-
+    import Account from "./Account.svelte";
+    import { user } from '$lib/userStore';
 </script>
 
 
@@ -13,14 +11,14 @@
         <a href="/" class="btn btn-square btn-ghost">
             <img src="/Images/favicon1.png" alt="Profile Picture" class="w-full h-full rounded" />
         </a>
-    <a class="ml-4 normal-case text-xl">DisCodes</a>
+    <h2 class="ml-4 normal-case text-xl">DisCodes</h2>
     </div>
     <div class="flex-none">
-            <!-- {#if $user}
+            {#if $user}
             <a class="btn btn-ghost normal-case" href="/dashboard">Dashboard</a>
             <Account />
             {:else}
             <a class="btn btn-ghost normal-case" href="/login">Log In</a>
-            {/if} -->
+            {/if}
     </div>
 </div>
