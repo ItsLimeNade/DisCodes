@@ -1,2 +1,1 @@
-# Nothing here yet
-ok
+# Repository Moved [here](https://github.com/Dis-Codes/discodes)!
