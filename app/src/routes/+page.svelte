@@ -1,19 +1,38 @@
 <script lang="ts">
-    import Changelog from './changelog/+page.svelte';
-    import NavBar from '$lib/components/NavBar.svelte';
-    export let data
-    const { session } = data
+	import { onMount } from "svelte";
+    onMount(async () => {
+        document.getElementById("title")?.classList.add("opacity-100")
+        document.getElementById("title")?.classList.add("-translate-y-40")
+        document.getElementById("plans")?.classList.add("-translate-y-40")
+        document.getElementById("plans")?.classList.add("opacity-100")
+        document.getElementById("roadmap")?.classList.add("opacity-100")
+        document.getElementById("roadmap")?.classList.add("translate-y-[-100px]")
+        setTimeout(() =>{
+            document.getElementById("joinbutton")?.classList.add("duration-[1000ms]")
+            document.getElementById("joinbutton")?.classList.add("opacity-100")
+        }, 2000)
+        setTimeout(() => {
+            document.getElementById("joinbutton")?.classList.replace("duration-[1000ms]", "duration-[200ms]")
+        }, 3000)
+        
+    })
 </script>
 
-<NavBar />
+
 <div class="flex flex-col items-center justify-center h-screen">
-    <h1 class="text-3xl font-bold underline text-[45px] mb-2">DisCodes</h1>
-    <h3 class="text-center font-bold mt-4 mb-2">The best place for your discord bot</h3>
-    {#if session?.user}
-    <a class="btn btn-accent" href="/dashboard">Open dashboard</a>
-    {:else}
-    <a class="btn btn-accent" href="/login">Let's begin!</a>
-    {/if}
-    <div class="py-10" />
-    <Changelog />
-  </div>
+        <h1 id="title" class="font-bold text-4xl pb-3 duration-[1500ms] ease-in-out opacity-0">Welcome To Discodes</h1>
+        <h3 id="plans" class="font-bold text-2xl text-primary opacity-0 duration-[1800ms] ease-in-out">Our plans:</h3>
+
+        <ul id="roadmap" class="steps duration-[2000ms] ease-in-out opacity-0">
+            <li class="step step-primary">Website layout</li>
+            <li class="step step-base-100">Basic Bot Maker</li>
+            <li class="step step-base-100">Marketplace</li>
+            <li class="step step-base-100">Shared Workspaces</li>
+            <li class="step step-base-100 pb-5" data-content="?">Account System</li>
+        </ul>
+        <div class="translate-y-[-50px]">
+            <a id="joinbutton" class="btn btn-primary opacity-0 ease-in-out" href='https://s4d.discodes.xyz'>Go test it now!</a>
+        </div>
+        
+        <footer class="text-gray-600 absolute bottom-1 left-1">Last updated : 12/11/23</footer>
+</div>
