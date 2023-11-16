@@ -2,4 +2,4 @@
 	import '../app.css';
 </script>
 
-<slot data-theme="discodes"/>
+<slot data-theme="discodes" />

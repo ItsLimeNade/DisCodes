@@ -1,18 +1,21 @@
-export class localStorageManager {
+export class LocalStorageManager {
+	set(key: string, value: string | object): void {
+		value = typeof value === 'object' ? JSON.stringify(value) : value;
+		window.localStorage.setItem(key, value);
+	}
 
-    write(key: string, value: string): void {
-        window.localStorage.setItem(key, value)
-    }
+	get(key: string): object {
+		const storedValue = window.localStorage.getItem(key);
 
-    get(key: string): string | null {
-        return window.localStorage.getItem(key)
-    }
+		if (storedValue !== null) return JSON.parse(storedValue);
+		return {};
+	}
 
-    remove(key: string): void {
-        window.localStorage.removeItem(key)
-    }
+	remove(key: string): void {
+		window.localStorage.removeItem(key);
+	}
 
-    exists(key: string): boolean {
-        return this.get(key) ? true : false
-    }
+	exists(key: string): boolean {
+		return Object.keys(this.get(key)).length === 0 ? false : true;
+	}
 }

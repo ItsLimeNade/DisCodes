@@ -10,16 +10,16 @@
 		document.getElementById('roadmap')?.classList.add('translate-y-[-100px]');
 		setTimeout(() => {
 			document.getElementById('joinbutton')?.classList.add('duration-[1000ms]');
-            document.getElementById('preview')?.classList.add('duration-[2000ms]');
+			document.getElementById('preview')?.classList.add('duration-[2000ms]');
 
 			document.getElementById('joinbutton')?.classList.add('opacity-100');
-            document.getElementById('preview')?.classList.add('opacity-100');
+			document.getElementById('preview')?.classList.add('opacity-100');
 		}, 2000);
 		setTimeout(() => {
 			document
 				.getElementById('joinbutton')
 				?.classList.replace('duration-[1000ms]', 'duration-[200ms]');
-            document
+			document
 				.getElementById('preview')
 				?.classList.replace('duration-[2000ms]', 'duration-[200ms]');
 		}, 3000);
@@ -44,17 +44,17 @@
 	</ul>
 	<div class="translate-y-[-50px]">
 		<a id="joinbutton" class="btn btn-primary opacity-0 ease-in-out" href="/create">
-            Go test it now!
-        </a>
+			Go test it now!
+		</a>
 	</div>
-    <div class="translate-y-[-50px] pt-5">
-        <!-- <button id="preview" class="btn btn-secondary opacity-0 ease-in-out" on:click={() => window.scrollTo({top: document.getElementById("preview_window")?.getBoundingClientRect().top, behavior: "smooth"})}>
+	<div class="translate-y-[-50px] pt-5">
+		<!-- <button id="preview" class="btn btn-secondary opacity-0 ease-in-out" on:click={() => window.scrollTo({top: document.getElementById("preview_window")?.getBoundingClientRect().top, behavior: "smooth"})}>
             Try a preview
         </button> -->
-		
-    </div>
-    <footer class="text-gray-600 absolute bottom-1 left-1">Last updated : 12/11/23</footer>
+	</div>
+	<footer class="text-gray-600 absolute bottom-1 left-1">Last updated : 12/11/23</footer>
 </div>
+
 <!-- <div class="flex flex-col items-center translate-y-[-80px]">
 	<button class="down-arrow" on:click={() => {
 		window.scrollTo({top: document.getElementById("preview_window")?.getBoundingClientRect().top, behavior: "smooth"})
@@ -66,7 +66,6 @@
     <embed id="preview_window" src="http://s4d.discodes.xyz" class="w-[95vw] h-[92vh] pb-5">
 </div>
 </div> -->
-
 
 <style>
 	/* .down-arrow {
