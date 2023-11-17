@@ -15,6 +15,8 @@
 
 
   function addFile(): void {
+    //@ts-expect-error
+    document.getElementById("addFileModal")?.showModal()
     let newConfig = config.config
     newConfig.workspaces[0].files.push({
       name: "Introduction",
@@ -35,6 +37,16 @@
   }
 </script>
 
+<dialog id="addFileModal" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click on ✕ button to close</p>
+  </div>
+</dialog>
+
 <div class="flex items-center justify-center h-screen gap-10">
   {#if browser}
     {#each workspaceFiles as file, i}
@@ -46,7 +58,7 @@
         <h2 class="card-title">{file.name}</h2>
         <p>{file.description}</p>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary" on:click={() => deleteFile(0)}>Edit</button>
+          <button class="btn btn-primary" on:click={() => deleteFile(0)}>Edit</button> <!-- TODO Make this thing work...-->
         </div>
       </div>
     </div>
